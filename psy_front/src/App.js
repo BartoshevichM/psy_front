@@ -1,17 +1,13 @@
 import React from 'react';
 import './App.css';
-import Home from './pages/Home'
-import About from './pages/About'
+import Landing from './pages/Landing'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-          <Home/>
-          <About/>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+                <Landing/>
+        </div>
+    );
 }
 
 export default App;

@@ -22,10 +22,9 @@ export default function ({props}) {
                     officiis pariatur praesentium quaerat quam, quo rem saepe sequi similique tempora voluptatum! Eius
                     facilis laboriosam velit! Cum eum incidunt iure natus porro quo sunt! Deserunt eligendi enim eum
                     libero quas repellendus saepe sed tenetur vitae.
-
                 </div>
-                <div className={classes.Photo}>
-                    <img src="photo.jpg" alt="Olga Galperina"/>
+                <div className={classes.PhotoBlock}>
+                    <img src="photo.jpg" alt="Olga Galperina" className={classes.Photo}/>
                 </div>
             </div>
             <div className={classes.Element}/>

@@ -1,12 +1,12 @@
 .About {
+    top: -25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: auto;
     z-index: 1;
-    top: -20vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .Info {
@@ -15,11 +15,14 @@
     padding: 0 2rem 0 2rem;
 }
 
-.Photo {
+.PhotoBlock {
     width: 40%;
-    padding: 0 2rem 0 2rem;
-    background-size: contain;
     height: 70%;
+}
+
+.Photo {
+    width: 140%;
+    height: auto;
 }
 
 .Element {
@@ -30,6 +33,6 @@
     transform: rotate(-5deg);
     position: relative;
     left: -10%;
-    bottom: 10vh;
+    bottom: 15vh;
     z-index: 1;
 }

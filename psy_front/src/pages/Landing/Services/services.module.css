@@ -1,0 +1,11 @@
+.Services {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    z-index: 1;
+    top: -25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #15a2ff;
+}
