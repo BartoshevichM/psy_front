@@ -1,0 +1,18 @@
+.Navigation {
+    height: 160px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 300;
+}
+
+.MenuWrapper {
+    width: 3.5rem;
+    height: 2rem;
+    position: absolute;
+    right: 5rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
