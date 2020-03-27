@@ -7,10 +7,10 @@ import Payment from "./Payment";
 export default function ({props}) {
     return (
         <Fragment>
-            <Home/>
-            <About/>
-            <Services/>
-            <Payment/>
+                <Home/>
+                <About/>
+                <Services/>
+                <Payment/>
         </Fragment>
     )
 }
