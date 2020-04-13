@@ -23,7 +23,7 @@ class Menu extends Component {
 
 function mapStateToProps(state) {
     return {
-        isMenuActive: state.isMenuActive,
+        isMenuActive: state.menu.isMenuActive,
     }
 }
 

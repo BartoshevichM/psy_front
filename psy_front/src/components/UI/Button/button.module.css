@@ -1,0 +1,32 @@
+.Button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: 2px 0;
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    text-transform: uppercase;
+    outline-style: none;
+}
+
+.Button:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+}
+
+.payment {
+    color: #15a2ff;
+    border-color: #15a2ff;
+    transition: .5s;
+}
+
+.payment:hover,
+.payment:focus {
+    background-color: #2f2f2f;
+}
+
+.payment:disabled {
+    color: rgba(71, 170, 250, 0.50);
+    border-color: rgba(71, 170, 250, 0.50);
+}

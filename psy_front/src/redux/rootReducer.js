@@ -1,29 +1,6 @@
-const initialState = {
-    isMenuActive: false,
-    clsMenu: []
-};
+import {combineReducers} from "redux"
 
-export default function rootReducer(state = initialState, action) {
-    switch (action.type) {
+import menu from './reducers/menu'
+import input from './reducers/input'
 
-        case 'OPEN_CLOSE':
-            return {
-                isMenuActive: !state.isMenuActive,
-                clsMenu: state.clsMenu.length > 1 ? [state.clsMenu[0]] : state.clsMenu
-            };
-        case 'SET_CLS_MENU':
-            return {
-                isMenuActive: state.isMenuActive,
-                clsMenu: action.payload
-            };
-        case 'SET_ACTIVE_CLS_MENU':
-            return {
-                isMenuActive: state.isMenuActive,
-                clsMenu: action.payload
-            };
-        default:
-            break;
-
-    }
-    return state
-}
+export default combineReducers({ menu, input })
