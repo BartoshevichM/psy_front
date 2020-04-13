@@ -21,25 +21,28 @@ class PaymentForm extends Component {
         event.preventDefault()
     }
 
-    onBlurHandler = event => {
+    onBlurHandlerName = event => {
         if (this.props.inputName) {
             if (!event.target.value.length) {
                 this.props.inputNamePassive()
             }
         }
+    }
 
+    onBlurHandlerPhone = event => {
         if (this.props.inputPhone) {
             if (!event.target.value.length) {
                 this.props.inputPhonePassive()
             }
         }
+    }
 
+    onBlurHandlerEmail = event => {
         if (this.props.inputEmail) {
             if (!event.target.value.length) {
                 this.props.inputEmailPassive()
             }
         }
-
     }
 
     render() {
@@ -56,21 +59,21 @@ class PaymentForm extends Component {
                         inputStyle="payment"
                         isActive={this.props.inputName}
                         onClick={this.props.inputNameActive}
-                        onBlur={this.onBlurHandler}
+                        onBlur={this.onBlurHandlerName}
                     />
                     <Input
                         label="Телефон"
                         inputStyle="payment"
                         isActive={this.props.inputPhone}
                         onClick={this.props.inputPhoneActive}
-                        onBlur={this.onBlurHandler}
+                        onBlur={this.onBlurHandlerPhone}
                     />
                     <Input
                         label="Емаил"
                         inputStyle="payment"
                         isActive={this.props.inputEmail}
                         onClick={this.props.inputEmailActive}
-                        onBlur={this.onBlurHandler}
+                        onBlur={this.onBlurHandlerEmail}
                     />
                     <Button
                         type="payment"
