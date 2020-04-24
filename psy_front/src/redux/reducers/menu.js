@@ -1,3 +1,9 @@
+import {
+    OPEN_CLOSE,
+    SET_ACTIVE_CLS_MENU,
+    SET_CLS_MENU
+} from '../actions/actionTypes'
+
 const initialState = {
     isMenuActive: false,
     clsMenu: []
@@ -6,19 +12,19 @@ const initialState = {
 export default function menu(state = initialState, action) {
     switch (action.type) {
 
-        case 'OPEN_CLOSE':
+        case OPEN_CLOSE:
             return {
                 isMenuActive: !state.isMenuActive,
                 clsMenu: state.clsMenu.length > 1 ? [state.clsMenu[0]] : state.clsMenu
             }
 
-        case 'SET_CLS_MENU':
+        case SET_CLS_MENU:
             return {
                 isMenuActive: state.isMenuActive,
                 clsMenu: action.payload
             }
 
-        case 'SET_ACTIVE_CLS_MENU':
+        case SET_ACTIVE_CLS_MENU:
             return {
                 isMenuActive: state.isMenuActive,
                 clsMenu: action.payload

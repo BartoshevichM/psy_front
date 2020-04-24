@@ -1,13 +1,8 @@
 import {
-    OPEN_CLOSE,
-    SET_ACTIVE_CLS_MENU,
-    SET_CLS_MENU,
-    INPUT_PHONE_ACTIVE,
-    INPUT_EMAIL_ACTIVE,
-    INPUT_EMAIL_PASSIVE,
-    INPUT_NAME_ACTIVE,
-    INPUT_NAME_PASSIVE,
-    INPUT_PHONE_PASSIVE
+    OPEN_CLOSE, SET_ACTIVE_CLS_MENU, SET_CLS_MENU,
+    INPUT_PHONE_ACTIVE, INPUT_EMAIL_ACTIVE, INPUT_EMAIL_PASSIVE,
+    INPUT_NAME_ACTIVE, INPUT_NAME_PASSIVE, INPUT_PHONE_PASSIVE,
+    SET_SELECTED_DATE, CLEAR_SELECTED_DATE, SET_STEP_0, SET_STEP_1, SET_STEP_2
 } from './actionTypes'
 
 export const openClose = () => ({type: OPEN_CLOSE})
@@ -27,3 +22,13 @@ export const setActiveClsMenu = (classes) => ({
     type: SET_ACTIVE_CLS_MENU,
     payload: classes
 })
+
+export const setSelectedDate = (date) => ({
+    type: SET_SELECTED_DATE,
+    payload: date
+})
+
+export const clearSelectedDate = () => ({type: CLEAR_SELECTED_DATE})
+export const setStep0 = () => ({type: SET_STEP_0})
+export const setStep1 = () => ({type: SET_STEP_1})
+export const setStep2 = () => ({type: SET_STEP_2})

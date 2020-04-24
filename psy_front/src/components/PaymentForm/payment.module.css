@@ -1,22 +1,32 @@
 .PaymentForm {
     display: flex;
-    flex-direction: column;
-    width: 60%;
-    height: 60%;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 55vh;
     border: 1px solid #15a2ff;
     border-radius: 1rem;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    height: 95%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    align-content: space-around;
 }
 
 .Title {
     color: white;
     font-size: 2.5rem;
-    margin: 2rem;
+    width: 100%;
 }
 
 .Form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100%;
- }
+    width: 50%;
+}
