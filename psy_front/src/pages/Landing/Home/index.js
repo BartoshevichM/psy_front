@@ -13,6 +13,11 @@ export default function({ props }) {
             >
                 <source src="vid.mp4" type="video/mp4" />
             </video>
+            <div className={classes.Title}>
+                <div>Olga Galperyna
+                    <div className={classes.titleSmall}>consultant</div>
+                </div>
+            </div>
             <div className={classes.Element}/>
         </Fragment>
     )

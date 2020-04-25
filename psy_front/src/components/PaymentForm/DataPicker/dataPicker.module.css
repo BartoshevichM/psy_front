@@ -22,7 +22,7 @@
     outline: none;
 }
 
-.note-active-date {
-    color: #f01f30;
+.noteActiveDate {
+    color: gray;
     pointer-events: none;
 }

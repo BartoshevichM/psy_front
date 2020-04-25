@@ -15,5 +15,13 @@ export const CLEAR_SELECTED_DATE = 'CLEAR_SELECTED_DATE'
 export const SET_STEP_0 = 'SET_STEP_0'
 export const SET_STEP_1 = 'SET_STEP_1'
 export const SET_STEP_2 = 'SET_STEP_2'
+//----subscriberInfo----
+export const SET_NAME = 'SET_NAME'
+export const SET_PHONE = 'SET_PHONE'
+export const SET_EMAIL = 'SET_EMAIL'
+export const SET_DATE = 'SET_DATE'
+export const SET_TIME = 'SET_TIME'
+
+
 
 

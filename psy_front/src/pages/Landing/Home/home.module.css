@@ -17,3 +17,22 @@
     bottom: 10vh;
     z-index: 1;
 }
+
+.Title {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    font-size: 8rem;
+    z-index: 2;
+    /*height: 100%;*/
+    width: 100%;
+    top: 30%;
+    color: white;
+    align-items: center;
+    /*justify-content: center;*/
+}
+
+.titleSmall {
+    display: flex;
+    font-size: 4rem;
+}
