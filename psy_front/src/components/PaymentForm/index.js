@@ -5,11 +5,16 @@ import Button from "../UI/Button";
 import Input from "../UI/Input";
 import {
     inputEmailActive, inputEmailPassive,
-    inputNameActive, inputNamePassive, inputPhoneActive, inputPhonePassive,
+    inputNameActive, inputNamePassive, inputPhoneActive, inputPhonePassive, setEmail, setName, setPhone,
     setStep0, setStep1, setStep2
 } from "../../redux/actions/actions";
 import DataPicker from "./DataPicker";
 import Time from "./Time";
+
+function validateEmail(email) {
+    let res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return res.test(String(email).toLowerCase());
+}
 
 class PaymentForm extends Component {
     titlesArr = ['Запись на консультацию', 'Выберите дату и время']
@@ -52,6 +57,99 @@ class PaymentForm extends Component {
         }
     }
 
+    getInputInfo = controlName => {
+        switch (controlName) {
+            case 'name':
+                return {
+                    isActive: this.props.inputName,
+                    onClick: this.props.inputNameActive,
+                    onBlur: this.onBlurHandlerName
+                }
+            case 'phone':
+                return {
+                    isActive: this.props.inputPhone,
+                    onClick: this.props.inputPhoneActive,
+                    onBlur: this.onBlurHandlerPhone
+                }
+            case 'email':
+                return {
+                    isActive: this.props.inputEmail,
+                    onClick: this.props.inputEmailActive,
+                    onBlur: this.onBlurHandlerEmail
+                }
+            default:
+                break;
+        }
+    }
+
+    validateControl(value, validation) {
+        if (!validation) {
+            return true
+        }
+
+        let isValid = true
+
+        if (validation.required) {
+            isValid = value !== '' && isValid
+        }
+
+        if (validation.email) {
+            isValid = validateEmail(value) && isValid
+        }
+
+        if (validation.minLength) {
+            isValid = value.length > validation.minLength && isValid
+        }
+
+        return isValid
+    }
+
+    onChangeHandler = (value, controlName) => {
+        const control = this.props.subInfo[controlName]
+        control.value = value
+        control.touched = true
+        control.valid = this.validateControl(control.value, control.validation)
+
+        switch (controlName) {
+            case 'name':
+                this.props.setName(control)
+                return
+            case 'phone':
+                this.props.setPhone(control)
+                return
+            case 'email':
+                this.props.setEmail(control)
+                return
+            default:
+                break;
+
+        }
+    }
+
+    renderInputs() {
+        return Object.keys(this.props.subInfo).map((controlName, index) => {
+            const control = this.props.subInfo[controlName]
+            const inputInfo = this.getInputInfo(controlName)
+            return (
+                <Input
+                    key={controlName + index}
+                    label={control.label}
+                    type={control.type}
+                    value={control.value}
+                    valid={control.valid}
+                    touched={control.touched}
+                    errorMessage={control.errorMessage}
+                    shouldValidate={!!control.validation}
+                    inputStyle="input"
+                    isActive={inputInfo.isActive}
+                    onClick={inputInfo.onClick}
+                    onBlur={inputInfo.onBlur}
+                    onChange={event => this.onChangeHandler(event.target.value, controlName)}
+                />
+            )
+        })
+    }
+
     render() {
         return (
             <div className={classes.PaymentForm}>
@@ -78,38 +176,18 @@ class PaymentForm extends Component {
                             onSubmit={this.submitHandler}
                             className={classes.Form}
                         >
-                            <Input
-                                label="Имя"
-                                inputStyle="input"
-                                isActive={this.props.inputName}
-                                onClick={this.props.inputNameActive}
-                                onBlur={this.onBlurHandlerName}
-                            />
-                            <Input
-                                label="Телефон"
-                                inputStyle="input"
-                                isActive={this.props.inputPhone}
-                                onClick={this.props.inputPhoneActive}
-                                onBlur={this.onBlurHandlerPhone}
-                            />
-                            <Input
-                                label="Емаил"
-                                inputStyle="input"
-                                isActive={this.props.inputEmail}
-                                onClick={this.props.inputEmailActive}
-                                onBlur={this.onBlurHandlerEmail}
-                            />
-                        </form> : ''}
+                            {this.renderInputs()}
+                        </form> : null}
 
                     {this.props.activeStep === 1 ?
                         <Fragment>
                             <DataPicker/>
                             {this.props.selectedDate ?
                                 <Time/>
-                                : ''
+                                : null
                             }
                         </Fragment>
-                        : ''}
+                        : null}
                 </div>
                 <div>
                     <Button
@@ -130,6 +208,7 @@ function mapStateToProps(state) {
         inputEmail: state.input.inputEmail,
         activeStep: state.payment.activeStep,
         selectedDate: state.payment.selectedDate,
+        subInfo: state.subscriberInfo.subInfo,
     }
 }
 
@@ -144,6 +223,9 @@ function mapDispatchToProps(dispatch) {
         setStep0: () => dispatch(setStep0()),
         setStep1: () => dispatch(setStep1()),
         setStep2: () => dispatch(setStep2()),
+        setName: (subInfo) => dispatch(setName(subInfo)),
+        setPhone: (control) => dispatch(setPhone(control)),
+        setEmail: (control) => dispatch(setEmail(control))
     }
 }
 

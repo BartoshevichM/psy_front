@@ -2,7 +2,7 @@ import {
     OPEN_CLOSE, SET_ACTIVE_CLS_MENU, SET_CLS_MENU,
     INPUT_PHONE_ACTIVE, INPUT_EMAIL_ACTIVE, INPUT_EMAIL_PASSIVE,
     INPUT_NAME_ACTIVE, INPUT_NAME_PASSIVE, INPUT_PHONE_PASSIVE,
-    SET_SELECTED_DATE, CLEAR_SELECTED_DATE, SET_STEP_0, SET_STEP_1, SET_STEP_2, SET_NAME, SET_PHONE
+    SET_SELECTED_DATE, CLEAR_SELECTED_DATE, SET_STEP_0, SET_STEP_1, SET_STEP_2, SET_NAME, SET_PHONE, SET_EMAIL
 } from './actionTypes'
 
 export const openClose = () => ({type: OPEN_CLOSE})
@@ -33,15 +33,15 @@ export const setStep0 = () => ({type: SET_STEP_0})
 export const setStep1 = () => ({type: SET_STEP_1})
 export const setStep2 = () => ({type: SET_STEP_2})
 
-export const setName = (name) => ({
+export const setName = (data) => ({
     type: SET_NAME,
-    payload: name
+    payload: data
 })
-export const setPhone = (phone) => ({
+export const setPhone = (data) => ({
     type: SET_PHONE,
-    payload: phone
+    payload: data
 })
-export const setEmail = (email) => ({
-    type: SET_PHONE,
-    payload: email
+export const setEmail = (data) => ({
+    type: SET_EMAIL,
+    payload: data
 })

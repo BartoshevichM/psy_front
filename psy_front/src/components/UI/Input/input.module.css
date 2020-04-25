@@ -37,8 +37,13 @@
     color: #f01f30;
 }
 
-.Input.invalid label {
+.Input.invalid label
+{
     color: #f01f30;
+}
+
+.Input.invalid input {
+    border-bottom: 1px solid #f01f30;
 }
 
 .payment {

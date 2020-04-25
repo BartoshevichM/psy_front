@@ -1,34 +1,65 @@
 import {SET_EMAIL, SET_NAME, SET_PHONE} from "../actions/actionTypes";
 
 const initialState = {
-    name: null,
-    phone: null,
-    email: null
+    subInfo: {
+
+        name: {
+            value: '',
+            type: 'text',
+            label: 'Имя',
+            errorMessage: 'Имя слишком короткое',
+            valid: false,
+            touched: false,
+            validation: {
+                required: true,
+                minLength: 1
+            }
+        },
+
+        phone: {
+            value: '',
+            type: 'text',
+            label: 'Телефон',
+            errorMessage: 'Введите корректный номер телефона',
+            valid: false,
+            touched: false,
+            validation: {
+                required: true,
+                phone: true
+            }
+        },
+
+        email: {
+            value: '',
+            type: 'email',
+            label: 'Емаил',
+            errorMessage: 'Введите корректный email',
+            valid: false,
+            touched: false,
+            validation: {
+                required: true,
+                email: true
+            }
+        }
+    }
+
 }
 
 export default function subscriberInfo(state = initialState, action) {
-    switch (action.type) {
+    let subInfo = state.subInfo
 
+    switch (action.type) {
         case SET_NAME:
-            return {
-                name: action.payload,
-                phone: state.phone,
-                email: state.email
-            }
+            subInfo.name = {...action.payload}
+            return {subInfo: {...subInfo}}
 
         case SET_PHONE:
-            return {
-                name: state.name,
-                phone: action.payload,
-                email: state.email
-            }
+            subInfo.phone = action.payload
+            return {subInfo: {...subInfo}}
 
         case SET_EMAIL:
-            return {
-                name: state.name,
-                phone: state.phone,
-                email: action.payload
-            }
+            subInfo.email = action.payload
+            return {subInfo: {...subInfo}}
 
         default:
             return state
