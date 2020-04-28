@@ -6,7 +6,7 @@ import Input from "../UI/Input";
 import {
     inputEmailActive, inputEmailPassive,
     inputNameActive, inputNamePassive, inputPhoneActive, inputPhonePassive, setEmail, setName, setPhone,
-    setStep0, setStep1, setStep2
+    setStep0, setStep1, setStep2, setTouched
 } from "../../redux/actions/actions";
 import DataPicker from "./DataPicker";
 import Time from "./Time";
@@ -20,8 +20,22 @@ class PaymentForm extends Component {
     titlesArr = ['Запись на консультацию', 'Выберите дату и время']
 
     paymentButtonHandler = () => {
-        if (!this.props.activeStep) this.props.setStep1()
+        if (!this.props.activeStep) {
+            if (
+                this.props.subInfo.name.valid &&
+                this.props.subInfo.phone.valid &&
+                this.props.subInfo.email.valid
+            ) {
+                this.props.setStep1()
+            } else {
+                if (!this.props.subInfo.name.valid) this.props.setTouched('name')
+                if (!this.props.subInfo.phone.valid) this.props.setTouched('phone')
+                if (!this.props.subInfo.email.valid) this.props.setTouched('email')
+            }
+        }
+
         if (this.props.activeStep === 1) this.props.setStep2()
+
     }
 
     backButtonHandler = () => {
@@ -225,7 +239,8 @@ function mapDispatchToProps(dispatch) {
         setStep2: () => dispatch(setStep2()),
         setName: (subInfo) => dispatch(setName(subInfo)),
         setPhone: (control) => dispatch(setPhone(control)),
-        setEmail: (control) => dispatch(setEmail(control))
+        setEmail: (control) => dispatch(setEmail(control)),
+        setTouched: (inputName) => dispatch(setTouched(inputName))
     }
 }
 

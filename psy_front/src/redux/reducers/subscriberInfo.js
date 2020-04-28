@@ -1,4 +1,4 @@
-import {SET_EMAIL, SET_NAME, SET_PHONE} from "../actions/actionTypes";
+import {SET_EMAIL, SET_NAME, SET_PHONE, SET_TOUCHED} from "../actions/actionTypes";
 
 const initialState = {
     subInfo: {
@@ -59,6 +59,10 @@ export default function subscriberInfo(state = initialState, action) {
 
         case SET_EMAIL:
             subInfo.email = action.payload
+            return {subInfo: {...subInfo}}
+
+        case SET_TOUCHED:
+            subInfo[action.payload].touched = true
             return {subInfo: {...subInfo}}
 
         default:
