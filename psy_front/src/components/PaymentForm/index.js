@@ -165,6 +165,10 @@ class PaymentForm extends Component {
     }
 
     render() {
+
+        this.props.setStep1()
+
+
         return (
             <div className={classes.PaymentForm}>
                 <div className={classes.titleContainer}>
@@ -185,13 +189,13 @@ class PaymentForm extends Component {
                 </div>
                 <div className={classes.container}>
 
-                    {!this.props.activeStep ?
-                        <form
-                            onSubmit={this.submitHandler}
-                            className={classes.Form}
-                        >
-                            {this.renderInputs()}
-                        </form> : null}
+                    {/*{!this.props.activeStep ?*/}
+                    {/*    <form*/}
+                    {/*        onSubmit={this.submitHandler}*/}
+                    {/*        className={classes.Form}*/}
+                    {/*    >*/}
+                    {/*        {this.renderInputs()}*/}
+                    {/*    </form> : null}*/}
 
                     {this.props.activeStep === 1 ?
                         <Fragment>

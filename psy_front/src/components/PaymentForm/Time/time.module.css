@@ -22,3 +22,8 @@
     color: #15a2ff;
     height: 2rem;
 }
+
+.not_active {
+    border-color: gray;
+    color: gray;
+}

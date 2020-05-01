@@ -26,3 +26,14 @@
     color: gray;
     pointer-events: none;
 }
+
+.activeDate {
+    background-color: #2f2f2f;
+    border: 1px solid #15a2ff;
+    border-radius: .3rem;
+    outline: none;
+}
+
+.eact-calendar__tile--active {
+
+}

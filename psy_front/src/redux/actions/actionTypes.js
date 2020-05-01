@@ -11,7 +11,6 @@ export const INPUT_PHONE_PASSIVE = 'INPUT_PHONE_PASSIVE'
 export const INPUT_EMAIL_PASSIVE = 'INPUT_EMAIL_PASSIVE'
 //----payment----
 export const SET_SELECTED_DATE = 'SET_SELECTED_DATE'
-export const CLEAR_SELECTED_DATE = 'CLEAR_SELECTED_DATE'
 export const SET_STEP_0 = 'SET_STEP_0'
 export const SET_STEP_1 = 'SET_STEP_1'
 export const SET_STEP_2 = 'SET_STEP_2'

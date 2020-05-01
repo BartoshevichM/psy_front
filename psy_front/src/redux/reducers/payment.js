@@ -1,10 +1,13 @@
 import {
     SET_SELECTED_DATE,
-    CLEAR_SELECTED_DATE, SET_STEP_0, SET_STEP_1, SET_STEP_2
+    SET_STEP_0,
+    SET_STEP_1,
+    SET_STEP_2
 } from '../actions/actionTypes'
 
 const initialState = {
     selectedDate: null,
+    selectedDateElement: null,
     activeStep: 0
 }
 
@@ -14,30 +17,28 @@ export default function payment(state = initialState, action) {
         case SET_SELECTED_DATE:
             return {
                 selectedDate: action.payload,
-                activeStep: state.activeStep
-            }
-
-        case CLEAR_SELECTED_DATE:
-            return {
-                selectedDate: null,
+                selectedDateElement: state.selectedDateElement,
                 activeStep: state.activeStep
             }
 
         case SET_STEP_0:
             return {
                 selectedDate: state.selectedDate,
+                selectedDateElement: state.selectedDateElement,
                 activeStep: 0
             }
 
         case SET_STEP_1:
             return {
                 selectedDate: state.selectedDate,
+                selectedDateElement: state.selectedDateElement,
                 activeStep: 1
             }
 
         case SET_STEP_2:
             return {
                 selectedDate: state.selectedDate,
+                selectedDateElement: state.selectedDateElement,
                 activeStep: 2
             }
 

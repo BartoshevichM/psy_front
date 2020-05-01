@@ -16,7 +16,7 @@ import {
     SET_NAME,
     SET_PHONE,
     SET_EMAIL,
-    SET_TOUCHED
+    SET_TOUCHED, SET_SELECTED_DATE_ELEMENT
 } from './actionTypes'
 
 export const openClose = () => ({type: OPEN_CLOSE})
@@ -42,7 +42,6 @@ export const setSelectedDate = (date) => ({
     payload: date
 })
 
-export const clearSelectedDate = () => ({type: CLEAR_SELECTED_DATE})
 export const setStep0 = () => ({type: SET_STEP_0})
 export const setStep1 = () => ({type: SET_STEP_1})
 export const setStep2 = () => ({type: SET_STEP_2})
