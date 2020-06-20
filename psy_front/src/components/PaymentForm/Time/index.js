@@ -1,24 +1,28 @@
 import React, {Component} from "react"
 import classes from './time.module.css'
 import {connect} from "react-redux";
+import {setConsultationTime} from "../../../redux/actions/actions";
 
 class Time extends Component {
+    state = {activeElement: null}
 
     subScheduler = [
         {
-            month: 3,
+            month: 5,
             scheduler: [
-                {date: 29, time: [1, 5]},
-                {date: 30, time: [3, 4, 2]}
+                {date: 22, time: [1, 5]},
+                {date: 23, time: [1, 5]},
+                {date: 24, time: [1, 5]},
+                {date: 25, time: [3, 4, 2]}
             ]
         },
         {
-            month: 4,
+            month: 6,
             scheduler: [
                 {date: 0, time: [1, 5]},
                 {date: 1, time: [3, 4, 2]},
-                {date: 2, time: [3, 4, 5]},
-                {date: 3, time: [1, 2]}
+                {date: 10, time: [3, 4, 5]},
+                {date: 11, time: [1, 2]}
             ]
         },
     ]
@@ -29,7 +33,7 @@ class Time extends Component {
         '17:30-18:30', '18:45-19:45', '20:00-21:00']
 
     computeClassName(timeId) {
-        const notActive = `${classes.time_item} ${classes.not_active}`
+        const notActive = `${classes.timeItem} ${classes.notActive}`
         const month = this.props.selectedDate.getMonth()
         const date = this.props.selectedDate.getDate()
         const shed = this.subScheduler.find(el => el.month === month)
@@ -43,7 +47,16 @@ class Time extends Component {
             const timeArr = findDays.time
             if (timeArr.includes(timeId)) return notActive
         }
-        return classes.time_item
+        return classes.timeItem
+    }
+
+    onClickHandler = e => {
+        e.preventDefault()
+        let cls = e.target.classList
+        if (!cls.contains('notActive')) {
+            cls.add(classes.activeTime)
+        }
+        this.props.setConsultationTime(e.target.innerText)
     }
 
     timeRender() {
@@ -52,18 +65,21 @@ class Time extends Component {
         let j = 0
 
         for (let i = 0; i < 3; i++) {
-            for (let i = 0; i < 3; i++) {
+            for (let k = 0; k < 3; k++) {
                 content.push(
                     <div
+                        key={j}
                         className={this.computeClassName(j + 1)}
-                    >{this.subscribeTime[j]}
-                    </div>)
+                        onClick={this.onClickHandler}
+                    >
+                        {this.subscribeTime[j]}
+                    </div>
+                )
                 j++
             }
-            res.push(<div className={classes.Column}>{[...content]}</div>)
+            res.push(<div key={Math.random()} className={classes.Column}>{[...content]}</div>)
             content.length = 0
         }
-
         return res
     }
 
@@ -76,12 +92,16 @@ class Time extends Component {
     }
 }
 
-function
-
-mapStateToProps(state) {
+function mapStateToProps(state) {
     return {
         selectedDate: state.payment.selectedDate,
     }
 }
 
-export default connect(mapStateToProps)(Time)
+function mapDispatchToProps(dispatch) {
+    return {
+        setConsultationTime: (time) => dispatch(setConsultationTime(time)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Time)

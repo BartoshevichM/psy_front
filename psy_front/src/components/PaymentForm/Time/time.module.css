@@ -14,16 +14,22 @@
     width: 30%;
 }
 
-.time_item {
+.timeItem {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #15a2ff;
     color: #15a2ff;
     height: 2rem;
+    cursor: pointer;
 }
 
-.not_active {
+.notActive {
     border-color: gray;
     color: gray;
+    cursor: not-allowed;
+}
+
+.activeTime {
+    background-color: #2f2f2f;
 }

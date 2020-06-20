@@ -1,22 +1,11 @@
 import {
-    OPEN_CLOSE,
-    SET_ACTIVE_CLS_MENU,
-    SET_CLS_MENU,
-    INPUT_PHONE_ACTIVE,
-    INPUT_EMAIL_ACTIVE,
-    INPUT_EMAIL_PASSIVE,
-    INPUT_NAME_ACTIVE,
-    INPUT_NAME_PASSIVE,
-    INPUT_PHONE_PASSIVE,
+    OPEN_CLOSE, SET_ACTIVE_CLS_MENU, SET_CLS_MENU,
+    INPUT_PHONE_ACTIVE, INPUT_EMAIL_ACTIVE, INPUT_EMAIL_PASSIVE,
+    INPUT_NAME_ACTIVE, INPUT_NAME_PASSIVE, INPUT_PHONE_PASSIVE,
     SET_SELECTED_DATE,
-    CLEAR_SELECTED_DATE,
-    SET_STEP_0,
-    SET_STEP_1,
-    SET_STEP_2,
-    SET_NAME,
-    SET_PHONE,
-    SET_EMAIL,
-    SET_TOUCHED, SET_SELECTED_DATE_ELEMENT
+    SET_STEP_0, SET_STEP_1, SET_STEP_2,
+    SET_NAME, SET_PHONE, SET_EMAIL, SET_TOUCHED,
+    SET_CONSULTATION_DATE, SET_CONSULTATION_TIME
 } from './actionTypes'
 
 export const openClose = () => ({type: OPEN_CLOSE})
@@ -61,5 +50,15 @@ export const setEmail = (data) => ({
 
 export const setTouched = (data) => ({
     type: SET_TOUCHED,
+    payload: data
+})
+
+export const setConsultationDate = (data) => ({
+    type: SET_CONSULTATION_DATE,
+    payload: data
+})
+
+export const setConsultationTime = (data) => ({
+    type: SET_CONSULTATION_TIME,
     payload: data
 })
