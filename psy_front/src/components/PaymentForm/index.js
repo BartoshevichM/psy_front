@@ -9,6 +9,7 @@ import {
     setStep0, setStep1, setStep2, setTouched
 } from "../../redux/actions/actions";
 import DataPicker from "./DataPicker";
+import NotifySuccess from './NotifySuccess'
 import Time from "./Time";
 
 function validateEmail(email) {
@@ -33,9 +34,7 @@ class PaymentForm extends Component {
                 if (!this.props.subInfo.email.valid) this.props.setTouched('email')
             }
         }
-
         if (this.props.activeStep === 1) this.props.setStep2()
-
     }
 
     backButtonHandler = () => {
@@ -100,21 +99,17 @@ class PaymentForm extends Component {
         if (!validation) {
             return true
         }
-
         let isValid = true
 
         if (validation.required) {
             isValid = value !== '' && isValid
         }
-
         if (validation.email) {
             isValid = validateEmail(value) && isValid
         }
-
         if (validation.minLength) {
             isValid = value.length > validation.minLength && isValid
         }
-
         return isValid
     }
 
@@ -165,10 +160,6 @@ class PaymentForm extends Component {
     }
 
     render() {
-
-        this.props.setStep1()
-
-
         return (
             <div className={classes.PaymentForm}>
                 <div className={classes.titleContainer}>
@@ -189,13 +180,13 @@ class PaymentForm extends Component {
                 </div>
                 <div className={classes.container}>
 
-                    {/*{!this.props.activeStep ?*/}
-                    {/*    <form*/}
-                    {/*        onSubmit={this.submitHandler}*/}
-                    {/*        className={classes.Form}*/}
-                    {/*    >*/}
-                    {/*        {this.renderInputs()}*/}
-                    {/*    </form> : null}*/}
+                    {!this.props.activeStep ?
+                        <form
+                            onSubmit={this.submitHandler}
+                            className={classes.Form}
+                        >
+                            {this.renderInputs()}
+                        </form> : null}
 
                     {this.props.activeStep === 1 ?
                         <Fragment>
@@ -204,6 +195,11 @@ class PaymentForm extends Component {
                                 <Time/>
                                 : null
                             }
+                        </Fragment>
+                        : null}
+                    {this.props.activeStep === 2 ?
+                        <Fragment>
+                            <NotifySuccess/>
                         </Fragment>
                         : null}
                 </div>

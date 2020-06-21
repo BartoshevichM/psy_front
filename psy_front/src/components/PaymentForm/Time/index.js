@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import classes from './time.module.css'
 import {connect} from "react-redux";
 import {setConsultationTime} from "../../../redux/actions/actions";
+import * as ReactDOM from "react-dom";
 
 class Time extends Component {
     state = {activeElement: null}
@@ -53,10 +54,10 @@ class Time extends Component {
     onClickHandler = e => {
         e.preventDefault()
         let cls = e.target.classList
-        if (!cls.contains('notActive')) {
-            cls.add(classes.activeTime)
+        if (!cls.value.includes('notActive')) {
+            this.setState({activeElement: e.target.innerText})
+            this.props.setConsultationTime(e.target.innerText)
         }
-        this.props.setConsultationTime(e.target.innerText)
     }
 
     timeRender() {
@@ -69,7 +70,7 @@ class Time extends Component {
                 content.push(
                     <div
                         key={j}
-                        className={this.computeClassName(j + 1)}
+                        className={`${this.computeClassName(j + 1)} ${this.subscribeTime[j] === this.state.activeElement ? classes.activeTime : ''}`}
                         onClick={this.onClickHandler}
                     >
                         {this.subscribeTime[j]}

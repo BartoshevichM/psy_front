@@ -56,35 +56,51 @@ export default function subscriberInfo(state = initialState, action) {
     let subInfo = state.subInfo
     let consultationInfo = state.consultationInfo
 
-    console.log(state)
-
     switch (action.type) {
         case SET_NAME:
             subInfo.name = {...action.payload}
-            return {subInfo, consultationInfo}
+            return {
+                subInfo: {...subInfo},
+                consultationInfo: {...consultationInfo}
+            }
 
         case SET_PHONE:
             subInfo.phone = action.payload
-            return {subInfo, consultationInfo}
+            return {
+                subInfo: {...subInfo},
+                consultationInfo: {...consultationInfo}
+            }
 
         case SET_EMAIL:
             subInfo.email = action.payload
-            return {subInfo, consultationInfo}
+            return {
+                subInfo: {...subInfo},
+                consultationInfo: {...consultationInfo}
+            }
 
         case SET_TOUCHED:
             subInfo[action.payload].touched = true
-            return {subInfo, consultationInfo}
+            return {
+                subInfo: {...subInfo},
+                consultationInfo: {...consultationInfo}
+            }
 
         case SET_CONSULTATION_DATE:
             if (consultationInfo.consultationDate !== action.payload) {
                 consultationInfo.consultationTime = null
             }
             consultationInfo.consultationDate = action.payload
-            return {subInfo, consultationInfo}
+            return {
+                subInfo: {...subInfo},
+                consultationInfo: {...consultationInfo}
+            }
 
         case SET_CONSULTATION_TIME:
             consultationInfo.consultationTime = action.payload
-            return {subInfo, consultationInfo}
+            return {
+                subInfo: {...subInfo},
+                consultationInfo: {...consultationInfo}
+            }
 
         default:
             return state
