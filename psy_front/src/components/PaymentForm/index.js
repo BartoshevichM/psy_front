@@ -4,9 +4,19 @@ import classes from './payment.module.css'
 import Button from "../UI/Button";
 import Input from "../UI/Input";
 import {
-    inputEmailActive, inputEmailPassive,
-    inputNameActive, inputNamePassive, inputPhoneActive, inputPhonePassive, setEmail, setName, setPhone,
-    setStep0, setStep1, setStep2, setTouched
+    inputEmailActive,
+    inputEmailPassive,
+    inputNameActive,
+    inputNamePassive,
+    inputPhoneActive,
+    inputPhonePassive,
+    setEmail,
+    setName,
+    setPhone,
+    setStep0,
+    setStep1,
+    setStep2,
+    setTouched
 } from "../../redux/actions/actions";
 import DataPicker from "./DataPicker";
 import NotifySuccess from './NotifySuccess'
