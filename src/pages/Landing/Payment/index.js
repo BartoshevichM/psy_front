@@ -5,7 +5,7 @@ import PaymentForm from "../../../components/PaymentForm";
 export default function () {
     return (
         <Fragment>
-            <div className={classes.Payment}>
+            <div className={classes.Payment} id='payment'>
                 <PaymentForm/>
             </div>
             >

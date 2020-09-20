@@ -3,7 +3,7 @@ import classes from './services.module.css'
 
 export default function ({props}) {
     return (
-        <div className={classes.Services}>
+        <div className={classes.Services} id='services'>
             <div className={classes.title}>Услуги</div>
             <div className={classes.itemsWrapper}>
                 <div className={classes.item}>

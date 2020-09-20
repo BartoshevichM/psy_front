@@ -4,7 +4,7 @@ import classes from './about.module.css'
 export default function ({props}) {
     return (
         <Fragment>
-            <div className={classes.About}>
+            <div className={classes.About} id='about'>
                 <div className={classes.Info}>
                     <h2>Lorem ipsum dolor sit amet</h2>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam aspernatur error fugiat
