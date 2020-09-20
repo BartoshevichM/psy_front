@@ -1,0 +1,16 @@
+.MenuNameTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    flex-grow: 2;
+}
+
+.MenuItem {
+    cursor: pointer;
+}
+
+.MenuItem:hover {
+    color: #15a2ff;
+    transition: .5s;
+}

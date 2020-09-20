@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import {connect} from 'react-redux'
 import classes from './navigation.module.css'
-import HamMenu from './HamMenu'
+import MenuItems from './MenuItems'
 import {openClose, setActiveClsMenu, setClsMenu} from "../../redux/actions/actions";
 
 class Navigation extends Component {
@@ -36,12 +36,7 @@ class Navigation extends Component {
                 className={this.props.clsMenu.join(' ')}
                 onScroll={this.handleScroll}
             >
-                <div className={classes.MenuWrapper}>
-                    <HamMenu
-                        onToggle={this.props.openCloseMenu}
-                        isOpen={this.props.isMenuActive}
-                    />
-                </div>
+                <MenuItems/>
             </div>
         )
     }
