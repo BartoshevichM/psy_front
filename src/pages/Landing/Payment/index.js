@@ -6,9 +6,8 @@ export default function () {
     return (
         <Fragment>
             <div className={classes.Payment} id='payment'>
-                {/*<PaymentForm/>*/}
+                <PaymentForm/>
             </div>
-            >
         </Fragment>
     )
 }

@@ -11,7 +11,7 @@ const initialState = {
     activeStep: 0
 }
 
-export default function payment(state = initialState, action) {
+export default function subscribeProgress(state = initialState, action) {
     switch (action.type) {
 
         case SET_SELECTED_DATE:

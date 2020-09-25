@@ -234,8 +234,8 @@ function mapStateToProps(state) {
         inputName: state.input.inputName,
         inputPhone: state.input.inputPhone,
         inputEmail: state.input.inputEmail,
-        activeStep: state.payment.activeStep,
-        selectedDate: state.payment.selectedDate,
+        activeStep: state.subscribeProgress.activeStep,
+        selectedDate: state.subscribeProgress.selectedDate,
         subInfo: state.subscriberInfo.subInfo,
     }
 }

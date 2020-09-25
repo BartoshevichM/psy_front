@@ -2,7 +2,7 @@ import {combineReducers} from "redux"
 
 import menu from './reducers/menu'
 import input from './reducers/input'
-import payment from "./reducers/payment";
+import subscribeProgress from "./reducers/subscribeProgress";
 import subscriberInfo from "./reducers/subscriberInfo";
 
-export default combineReducers({ menu, input, payment, subscriberInfo })
+export default combineReducers({ menu, input, subscribeProgress, subscriberInfo })

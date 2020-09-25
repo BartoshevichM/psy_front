@@ -69,7 +69,7 @@ class DataPicker extends Component {
 
 function mapStateToProps(state) {
     return {
-        selectedDate: state.payment.selectedDate,
+        selectedDate: state.subscr.selectedDate,
     }
 }
 

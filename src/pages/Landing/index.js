@@ -3,6 +3,7 @@ import Home from "./Home";
 import About from "./About";
 import Services from "./Services";
 import Subscribe from "./Subscribe";
+import Payment from "./Payment";
 
 export default function ({ props }) {
     return (
@@ -11,6 +12,7 @@ export default function ({ props }) {
             <About />
             <Services />
             <Subscribe />
+            <Payment />
         </Fragment>
     )
 }

@@ -95,7 +95,7 @@ class Time extends Component {
 
 function mapStateToProps(state) {
     return {
-        selectedDate: state.payment.selectedDate,
+        selectedDate: state.subscribeProgress().selectedDate,
     }
 }
 
