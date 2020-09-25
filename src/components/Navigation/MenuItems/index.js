@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import classes from "./menuItems.module.css";
-import {ABOUT, ARTICLE, SERVICES, SIGNUP_ON_CONSULTATION} from "../../../constants/menu";
+import {ABOUT, ARTICLE, SERVICES, SUBSCRIBE} from "../../../constants/menu";
 import {NavHashLink as NavLink} from 'react-router-hash-link';
 import { withRouter } from 'react-router-dom'
 
@@ -9,8 +9,8 @@ class MenuItems extends Component {
         return (
             <div className={classes.MenuNameTop}>
                 <div className={classes.MenuItem}>
-                    <NavLink exact smooth strict to='/#payment'>
-                        {SIGNUP_ON_CONSULTATION}
+                    <NavLink exact smooth strict to='/#subscribe'>
+                        {SUBSCRIBE}
                     </NavLink>
                     </div>
                 <div className={classes.MenuItem}>

@@ -10,8 +10,9 @@ class NotifySuccess extends Component{
         console.log(this.props)
         return (
             <Fragment>
-                <div className={classes.Success}>Вы записаны на консультацию!</div>
-                <div className={classes.Success}>{this.getDate(this.props.consultationDate)} В {this.props.consultationTime}</div>
+                <div className={classes.Success}>Запись на консультацию</div>
+                <div className={classes.Success}>{this.getDate(this.props.consultationDate)}</div>
+                <div className={classes.Success}> В {this.props.consultationTime}</div>
                 <div className={classes.Info}>подробности будут высланы на ваш емаил </div>
             </Fragment>
         )

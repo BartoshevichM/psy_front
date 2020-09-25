@@ -21,6 +21,7 @@ import {
 import DataPicker from "./DataPicker";
 import NotifySuccess from './NotifySuccess'
 import Time from "./Time";
+import PhoneInputC from "./PhoneInput";
 
 function validateEmail(email) {
     let res = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -45,6 +46,7 @@ class PaymentForm extends Component {
             }
         }
         if (this.props.activeStep === 1) this.props.setStep2()
+        if (this.props.activeStep === 2) this.props.setStep0()
     }
 
     backButtonHandler = () => {
@@ -196,6 +198,8 @@ class PaymentForm extends Component {
                             className={classes.Form}
                         >
                             {this.renderInputs()}
+                            <PhoneInputC />
+
                         </form> : null}
 
                     {this.props.activeStep === 1 ?
@@ -217,8 +221,8 @@ class PaymentForm extends Component {
                     <Button
                         type="payment"
                         onClick={this.paymentButtonHandler}
-                    >
-                        Продолжить </Button>
+                    > {this.props.activeStep === 2 ? 'Завершить': 'Продолжить'}
+                         </Button>
                 </div>
             </div>
         )

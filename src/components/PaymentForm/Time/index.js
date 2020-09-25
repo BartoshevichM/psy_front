@@ -18,12 +18,12 @@ class Time extends Component {
             ]
         },
         {
-            month: 6,
+            month: 9,
             scheduler: [
                 {date: 0, time: [1, 5]},
                 {date: 1, time: [3, 4, 2]},
-                {date: 10, time: [3, 4, 5]},
-                {date: 11, time: [1, 2]}
+                {date: 28, time: [3, 4, 5]},
+                {date: 30, time: [1, 5]}
             ]
         },
     ]
@@ -42,7 +42,7 @@ class Time extends Component {
         //set not active time for today
         if (month === new Date().getMonth() && date === new Date().getDate()) return notActive
 
-        const findDays = shed.scheduler.find(el => el.date === date)
+        const findDays = shed ? shed.scheduler.find(el => el.date === date) : null
 
         if (findDays) {
             const timeArr = findDays.time

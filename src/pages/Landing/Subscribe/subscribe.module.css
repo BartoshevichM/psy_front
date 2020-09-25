@@ -1,0 +1,11 @@
+.Subscribe {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    top: -32vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}

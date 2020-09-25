@@ -2,7 +2,7 @@ import React, {Fragment} from "react";
 import Home from "./Home";
 import About from "./About";
 import Services from "./Services";
-import Payment from "./Payment";
+import Subscribe from "./Subscribe";
 
 export default function ({ props }) {
     return (
@@ -10,7 +10,7 @@ export default function ({ props }) {
             <Home />
             <About />
             <Services />
-            <Payment />
+            <Subscribe />
         </Fragment>
     )
 }

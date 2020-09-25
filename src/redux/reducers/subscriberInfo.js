@@ -21,18 +21,18 @@ const initialState = {
                 minLength: 1
             }
         },
-        phone: {
-            value: '',
-            type: 'text',
-            label: 'Телефон',
-            errorMessage: 'Введите корректный номер телефона',
-            valid: false,
-            touched: false,
-            validation: {
-                required: true,
-                phone: true
-            }
-        },
+        // phone: {
+        //     value: '',
+        //     type: 'text',
+        //     label: 'Телефон',
+        //     errorMessage: 'Введите корректный номер телефона',
+        //     valid: false,
+        //     touched: false,
+        //     validation: {
+        //         required: true,
+        //         phone: true
+        //     }
+        // },
         email: {
             value: '',
             type: 'email',
