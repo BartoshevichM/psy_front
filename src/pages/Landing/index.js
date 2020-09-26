@@ -12,7 +12,7 @@ export default function ({ props }) {
             <About />
             <Services />
             <Subscribe />
-            <Payment />
+            {/*<Payment />*/}
         </Fragment>
     )
 }

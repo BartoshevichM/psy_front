@@ -236,7 +236,7 @@ function mapStateToProps(state) {
         inputEmail: state.input.inputEmail,
         activeStep: state.subscribeProgress.activeStep,
         selectedDate: state.subscribeProgress.selectedDate,
-        subInfo: state.subscriberInfo.subInfo,
+        subInfo: state.subscriberInfo.subInfo
     }
 }
 

@@ -13,7 +13,7 @@ export default function PhoneInputC() {
             <label
             >{'Телефон'}</label>
             <PhoneInput
-                inputStyle="input"
+                inputstyle="input"
                 className={classes.inp}
                 value={value}
                 onChange={setValue}/>
