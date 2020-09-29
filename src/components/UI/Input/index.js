@@ -7,7 +7,7 @@ function isInvalid({valid, touched, shouldValidate}) {
 
 const Input = props => {
     const inputType = props.type || 'text'
-    const inputStyle = props.inputStyle || ''
+    const inputStyle = props.inputStyle || 'input'
     const cls = [classes.Input, inputStyle]
     const htmlFor = `${inputType}-${Math.random()}`
 

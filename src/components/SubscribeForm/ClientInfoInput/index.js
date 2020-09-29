@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import classes from './clientInfoInput.module.css'
 import ButtonClientInfo from "./elements/ButtonClientInfo";
 import { SUBSCRIBE } from "../../../constants/menu"
+import Inputs from './elements/Inputs/index'
 
 class ClientInfoInput extends Component {
 
@@ -12,7 +13,7 @@ class ClientInfoInput extends Component {
                     <div className={classes.Title}>{ SUBSCRIBE }</div>
                 </div>
                 <div className={classes.container}>
-                    <div>Inputs</div>
+                    <Inputs/>
                 </div>
                 <div>
                     <ButtonClientInfo/>

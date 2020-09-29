@@ -161,7 +161,6 @@ class PaymentForm extends Component {
                     touched={control.touched}
                     errorMessage={control.errorMessage}
                     shouldValidate={!!control.validation}
-                    inputStyle="input"
                     isActive={inputInfo.isActive}
                     onClick={inputInfo.onClick}
                     onBlur={inputInfo.onBlur}
