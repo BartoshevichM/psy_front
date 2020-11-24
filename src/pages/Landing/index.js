@@ -4,6 +4,7 @@ import About from "./About";
 import Services from "./Services";
 import Subscribe from "./Subscribe";
 import Payment from "./Payment";
+import Footer from "../../hoc/footer/Footer";
 
 export default function ({ props }) {
     return (
@@ -12,6 +13,7 @@ export default function ({ props }) {
             <About />
             <Services />
             <Subscribe />
+            <Footer/>
             {/*<Payment />*/}
         </Fragment>
     )

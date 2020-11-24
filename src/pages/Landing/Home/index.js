@@ -4,7 +4,7 @@ import classes from './home.module.css'
 export default function({ props }) {
 
     return (
-        <Fragment>
+        <div className={classes.Home}>
             <video
                 autoPlay
                 muted
@@ -18,7 +18,6 @@ export default function({ props }) {
                     <div className={classes.titleSmall}>consultant</div>
                 </div>
             </div>
-            <div className={classes.Element}/>
-        </Fragment>
+        </div>
     )
 }

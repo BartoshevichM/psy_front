@@ -3,7 +3,6 @@ import classes from './about.module.css'
 
 export default function ({props}) {
     return (
-        <Fragment>
             <div className={classes.About} id='about'>
                 <div className={classes.Info}>
                     <h2>Lorem ipsum dolor sit amet</h2>
@@ -27,7 +26,5 @@ export default function ({props}) {
                     <img src="photo.jpg" alt="Olga Galperina" className={classes.Photo}/>
                 </div>
             </div>
-            <div className={classes.Element}/>
-        </Fragment>
     )
 }

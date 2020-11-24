@@ -6,33 +6,25 @@
     top: 0;
 }
 
-.Element {
-    display: flex;
-    background: white;
-    width: 150%;
-    height: 25vh;
-    transform: rotate(5deg);
-    position: relative;
-    left: -10%;
-    bottom: 10vh;
-    z-index: 1;
-}
-
 .Title {
     display: flex;
     flex-direction: column;
     position: absolute;
-    font-size: 8rem;
+    font-size: 6rem;
     z-index: 2;
-    /*height: 100%;*/
     width: 100%;
-    top: 30%;
     color: white;
     align-items: center;
-    /*justify-content: center;*/
 }
 
 .titleSmall {
     display: flex;
     font-size: 4rem;
+}
+
+.Home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
 }
