@@ -1,4 +1,4 @@
-import React, {Component, useState} from "react"
+import React, {Component} from "react"
 import classes from './inputPhone.module.css'
 import Input from './Input'
 import {
@@ -26,17 +26,6 @@ class InputPhone extends Component {
         }
     }
 
-    //                label={this.props.subInfo.email.label}
-    //                 value={this.props.subInfo.email.value}
-    //                 valid={this.props.subInfo.email.valid}
-    //                 touched={this.props.subInfo.email.touched}
-    //                 errorMessage={this.props.subInfo.email.errorMessage}
-    //                 shouldValidate={this.props.subInfo.email.validation.required}
-    //                 isActive={this.props.inputEmail}
-    //                 onClick={this.props.inputEmailActive}
-    //                 onBlur={this.onBlurHandlerEmail}
-    //                 onChange={event => this.onChangeHandler(event.target.value)}
-
     render() {
         return (
             <div className={classes.Input}>
@@ -50,8 +39,6 @@ class InputPhone extends Component {
             </div>
         )
     }
-
-
 }
 
 function mapStateToProps(state) {

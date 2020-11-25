@@ -1,0 +1,27 @@
+.DayDate {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.dayName {
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    justify-content: space-between;
+}
+
+.dName {
+    /*margin: 1rem;*/
+}
+
+.rowDate {
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    justify-content: space-between;
+}
+
+.dNum {
+
+}

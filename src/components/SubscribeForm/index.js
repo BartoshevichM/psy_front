@@ -8,21 +8,21 @@ import SubscribeResult from "./SubscribeResult";
 class SubscribeForm extends Component {
 
     render() {
-        let currentComponent
+        let currentComponent = <DateTimeInput/>
 
-        {
-            switch (this.props.activeStep) {
-                case 0:
-                  currentComponent = <ClientInfoInput/>
-                    break
-                case 1:
-                    currentComponent = <DateTimeInput/>
-                    break
-                case 2:
-                    currentComponent = <SubscribeResult/>
-                    break
-            }
-        }
+        // {
+        //     switch (this.props.activeStep) {
+        //         case 0:
+        //           currentComponent = <ClientInfoInput/>
+        //             break
+        //         case 1:
+        //             currentComponent = <DateTimeInput/>
+        //             break
+        //         case 2:
+        //             currentComponent = <SubscribeResult/>
+        //             break
+        //     }
+        // }
 
         return (
             <div className={classes.SubscribeForm}>

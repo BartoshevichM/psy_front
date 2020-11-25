@@ -1,10 +1,13 @@
 import React, {Component} from "react"
+import MyCalendar from "./MyCalendar";
 
 class DateTimeInput extends Component {
 
     render() {
         return (
-            <div>DateTimeInput</div>
+            <div>
+                <MyCalendar/>
+            </div>
         )
     }
 
