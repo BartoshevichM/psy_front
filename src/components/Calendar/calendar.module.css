@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    border-bottom: solid 1px;
 }
 
 .dayName {
@@ -9,10 +10,10 @@
     flex-direction: row;
     width: 20vw;
     justify-content: space-between;
+    height: 4vh;
 }
 
 .dName {
-    /*margin: 1rem;*/
 }
 
 .rowDate {
@@ -20,8 +21,16 @@
     flex-direction: row;
     width: 20vw;
     justify-content: space-between;
+    height: 4vh;
 }
 
 .dNum {
 
+}
+
+.title {
+    display: flex;
+    justify-content: flex-start;
+    height: 4vh;
+    font-size: 1.2rem;
 }

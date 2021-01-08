@@ -1,0 +1,34 @@
+.rowDate {
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    justify-content: space-between;
+    align-items: center;
+    height: 4vh;
+}
+
+.dNum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.activeMain {
+    display: flex;
+    background: green;
+}
+
+.active {
+    display: flex;
+    color: #15a2ff;
+}
+
+.passive {
+    display: flex;
+    color: gray;
+}
+
+.activeMonth {
+    display: flex;
+    background: azure;
+}
