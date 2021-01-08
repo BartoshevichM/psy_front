@@ -6,8 +6,8 @@ const getUpRow = (currentDay, currentMonth, currentYear) => {
     while (weekDay > 0) {
         if (currentDay === 1) {
             month = currentMonth - 1 >= 0 ? currentMonth - 1 : 11
-            const year = month !== 11 ? currentYear : currentYear - 1
-            currentDay = getMaxDays(month, year) + 1
+            currentYear = month !== 11 ? currentYear : currentYear - 1
+            currentDay = getMaxDays(month, currentYear) + 1
             full = true
         }
         arr[--weekDay] = new Date(currentYear, full ? month : currentMonth, Math.abs(--currentDay))
@@ -21,19 +21,14 @@ const getDownRow = (currentDay, maxDays, currentMonth, currentYear) => {
     let month
     let next = false
     while (weekDay < 6) {
-        if (currentDay === maxDays + 1) {
+        if (currentDay === maxDays ) {
             currentDay = 0
             month = currentMonth + 1 === 12 ? 0 : currentMonth + 1
             next = true
-
-            const day = new Date(currentYear, next ? month : currentMonth, ++currentDay)
-            currentDay = day.getDate()
-            arr[++weekDay] = day
-        } else {
-            const day = new Date(currentYear, next ? month : currentMonth, ++currentDay)
-            currentDay = day.getDate()
-            arr[++weekDay] = day
         }
+            const day = new Date(currentYear, next ? month : currentMonth, ++currentDay)
+            currentDay = day.getDate()
+            arr[++weekDay] = day
     }
     return {currentDay, arr}
 }
@@ -57,7 +52,7 @@ const setClasses = (arr, currentDate, activeMonth) => arr.map(date => date.map(d
         }
         if (d > currentDate) res.push('active')
         if (d < currentDate) res.push('passive')
-        if (d.getMonth() === activeMonth) res.push('activeMonth')
+        if (d.getMonth() === activeMonth && d > currentDate) res.push('activeMonth')
         return {date: d, classes: res}
     })
 )
@@ -81,7 +76,7 @@ const getCalendarArr = (weekDay, currentDay, currentMonth, currentYear, currentD
         res.push(arr)
     }
 
-    res = setClasses(res, currentDate)
+    res = setClasses(res, currentDate, currentMonth)
     return res
 }
 
