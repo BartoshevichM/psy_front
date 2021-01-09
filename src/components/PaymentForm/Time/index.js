@@ -2,7 +2,6 @@ import React, {Component} from "react"
 import classes from './time.module.css'
 import {connect} from "react-redux";
 import {setConsultationTime} from "../../../redux/actions/actions";
-import * as ReactDOM from "react-dom";
 
 class Time extends Component {
     state = {activeElement: null}

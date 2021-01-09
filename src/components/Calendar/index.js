@@ -2,22 +2,16 @@ import React, {Component} from "react";
 import classes from './calendar.module.css'
 import WeekNames from "./WeekNames";
 import WeekDays from "./WeekDays";
+import {MONTHS} from "../../constants/calendar"
+import {connect} from "react-redux";
 
 class Calendar extends Component {
-
-    months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
-    date = new Date()
-    dateNow = this.date.getDate()
-    yearNow = this.date.getFullYear()
-    monthNow = this.date.getMonth()
-    weekDayNow = this.date.getDay()
-
 
     render() {
         return(
             <div>
                 <div className={classes.title}>
-                    {this.dateNow} {this.months[this.monthNow]} {this.yearNow}
+                    {this.props.dateNow} {MONTHS[this.props.monthNow]} {this.props.yearNow}
                 </div>
                 <div className={classes.DayDate}>
                     <WeekNames/>
@@ -28,4 +22,12 @@ class Calendar extends Component {
     }
 }
 
-export default Calendar
+function mapStateToProps(state) {
+    return {
+        dateNow: state.calendar.dateNow,
+        yearNow: state.calendar.yearNow,
+        monthNow: state.calendar.monthNow,
+    }
+}
+
+export default connect(mapStateToProps)(Calendar)
