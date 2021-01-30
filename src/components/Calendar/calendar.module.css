@@ -34,3 +34,14 @@
     height: 4vh;
     font-size: 1.2rem;
 }
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.calendarControl {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+}

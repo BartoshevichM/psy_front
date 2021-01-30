@@ -17,6 +17,10 @@
 
 .activeMain {
     display: flex;
+    border: gray 1px solid;
+}
+
+.activeSelected {
     border: #15a2ff 1px solid;
 }
 

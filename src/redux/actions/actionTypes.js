@@ -22,7 +22,8 @@ export const SET_TOUCHED = 'SET_TOUCHED'
 export const SET_CONSULTATION_DATE = 'SET_CONSULTATION_DATE'
 export const SET_CONSULTATION_TIME = 'SET_CONSULTATION_TIME'
 //----calendar----
-
+export const SET_NEXT_MONTH = 'SET_NEXT_MONTH'
+export const SET_PREV_MONTH = 'SET_PREV_MONTH'
 
 
 

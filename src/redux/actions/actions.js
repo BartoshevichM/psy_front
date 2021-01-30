@@ -5,7 +5,8 @@ import {
     SET_SELECTED_DATE,
     SET_STEP_0, SET_STEP_1, SET_STEP_2,
     SET_NAME, SET_PHONE, SET_EMAIL, SET_TOUCHED,
-    SET_CONSULTATION_DATE, SET_CONSULTATION_TIME
+    SET_CONSULTATION_DATE, SET_CONSULTATION_TIME,
+    SET_NEXT_MONTH, SET_PREV_MONTH
 } from './actionTypes'
 
 export const openClose = () => ({type: OPEN_CLOSE})
@@ -62,3 +63,6 @@ export const setConsultationTime = (data) => ({
     type: SET_CONSULTATION_TIME,
     payload: data
 })
+
+export const setNextMonth = () => ({type: SET_NEXT_MONTH})
+export const setPrevMonth = () => ({type: SET_PREV_MONTH})

@@ -1,82 +1,74 @@
-const getUpRow = (currentDay, currentMonth, currentYear) => {
-    let arr = []
-    let weekDay = 7
-    let full = false
-    let month
-    while (weekDay > 0) {
-        if (currentDay === 1) {
-            month = currentMonth - 1 >= 0 ? currentMonth - 1 : 11
-            currentYear = month !== 11 ? currentYear : currentYear - 1
-            currentDay = getMaxDays(month, currentYear) + 1
-            full = true
-        }
-        arr[--weekDay] = new Date(currentYear, full ? month : currentMonth, Math.abs(--currentDay))
-    }
-    return {currentDay, arr, full}
-}
-
-const getDownRow = (currentDay, maxDays, currentMonth, currentYear) => {
-    let arr = []
-    let weekDay = -1
-    let month
-    let next = false
-    while (weekDay < 6) {
-        if (currentDay === maxDays ) {
-            currentDay = 0
-            month = currentMonth + 1 === 12 ? 0 : currentMonth + 1
-            next = true
-        }
-            const day = new Date(currentYear, next ? month : currentMonth, ++currentDay)
-            currentDay = day.getDate()
-            arr[++weekDay] = day
-    }
-    return {currentDay, arr}
-}
-
-const getMaxDays = (currentMonth, currentYear) => {
-    if (currentMonth === 8) return 31
-    if (currentMonth === 1) {
-        const isLeap = new Date(currentYear, 1, 29).getMonth() === 1
-        return isLeap ? 29 : 28
-    }
-    if (!(currentMonth % 2) && currentMonth !== 0) return 30
-    return 31
-}
-
-const setClasses = (arr, currentDate, activeMonth) => arr.map(date => date.map(d => {
+const setClasses = (arr) => arr.map(date => date.map(d => {
         let res = []
+        const now = new Date()
         if (
             `${d.getDate()}${d.getMonth()}${d.getFullYear()}` ===
-            `${currentDate.getDate()}${currentDate.getMonth()}${currentDate.getFullYear()}`) {
+            `${now.getDate()}${now.getMonth()}${now.getFullYear()}`) {
             res.push('activeMain')
         }
-        if (d > currentDate) res.push('active')
-        if (d < currentDate) res.push('passive')
-        if (d.getMonth() === activeMonth && d > currentDate) res.push('activeMonth')
+        if (d > now) res.push('active')
+        if (d < now) res.push('passive')
+        if (d.getMonth() === now.getMonth() && d > now) res.push('activeMonth')
         return {date: d, classes: res}
     })
 )
 
-const getCalendarArr = (weekDay, currentDay, currentMonth, currentYear, currentDate) => {
+const getWeeksArr = (arr) => {
     let res = []
-    let isFull = false
-    const maxDays = getMaxDays(currentMonth, currentYear)
-    let startDay = currentDay - (weekDay - 1)
-    while (!isFull) {
-        const {currentDay, arr, full} = getUpRow(startDay, currentMonth, currentYear)
-        startDay = currentDay
-        res.unshift(arr)
-        isFull = full
+    let week = []
+    for (let day of arr) {
+        week.push(day)
+        if (week.length === 7) {
+            res.push(week)
+            week = []
+        }
     }
-    startDay = currentDay - (weekDay)
+    return res
+}
 
-    while (res.length < 6) {
-        const {currentDay, arr} = getDownRow(startDay, maxDays, currentMonth, currentYear)
-        startDay = currentDay
-        res.push(arr)
+const getMonthArr = (date) => {
+    let res = []
+    const currentMonth = date.getMonth()
+    let day = 1
+
+    while (currentMonth === date.getMonth()) {
+        res.push(new Date(date.setDate(day)))
+        date = new Date(date.setDate(++day))
     }
 
-    res = setClasses(res, currentDate, currentMonth)
+    return res
+}
+
+const getCalendarArr = (date) => {
+    let res = []
+    const selectedMonthArr = getMonthArr(date)
+    const prevMonthArr = getMonthArr(new Date(date.setMonth(date.getMonth() - 1)))
+    const nextMonthArr = getMonthArr(new Date(date.setMonth(date.getMonth() + 2)))
+
+    res.push(...selectedMonthArr)
+
+    const firstDay = res[0].getDay()
+
+    for (let i = firstDay - 1; i >= 0; i--) {
+        res.unshift(prevMonthArr.pop())
+    }
+
+    const lastDay = res[res.length - 1].getDay()
+    for (let i = lastDay + 1; i <= 6; i++) {
+        res.push(nextMonthArr.shift())
+    }
+
+    if (res.length < 42) {
+        for (let i = 0; i <= 6; i++) {
+            res.push(nextMonthArr.shift())
+        }
+    }
+
+    res = res.map(d => new Date(d.setDate(d.getDate() + 1)))
+    res = getWeeksArr(res)
+    console.log(res)
+    res = setClasses(res)
+
     return res
 }
 
