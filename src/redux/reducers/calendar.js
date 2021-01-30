@@ -26,7 +26,7 @@ export default function input(state = initialState, action) {
                 ++yearNow
             }
             monthNow = ++monthNow
-            date.setMonth(monthNow)
+            date.setFullYear(yearNow, monthNow)
             return {
                 currentDate,
                 date,
@@ -42,8 +42,8 @@ export default function input(state = initialState, action) {
                 monthNow = 12
                 --yearNow
             }
-
-            date.setMonth(--monthNow)
+            monthNow = --monthNow
+            date.setFullYear(yearNow, monthNow)
             return {
                 currentDate,
                 date,
