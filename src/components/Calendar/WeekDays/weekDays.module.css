@@ -44,3 +44,7 @@
     display: flex;
     color: #15a2ff;
 }
+
+.selected {
+    color: green;
+}

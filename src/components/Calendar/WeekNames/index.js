@@ -7,7 +7,14 @@ export default function WeekNames() {
     return (
         <Fragment>
             <div className={classes.dayName}>
-                {WEEK_DAYS.map((dayName, i) => <div key={`dayName${i}`} className={classes.dName}>{dayName}</div>)}
+                {
+                    WEEK_DAYS.map((dayName, i) =>
+                        <div
+                            key={`dayName${i}`}
+                            className={classes.dName}
+                        >{dayName}
+                        </div>)
+                }
             </div>
         </Fragment>
     )

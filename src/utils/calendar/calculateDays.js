@@ -1,4 +1,4 @@
-const setClasses = (arr, activeMonth, activeYear) => arr.map(date => date.map(d => {
+const setClasses = (arr, activeMonth, activeYear, selectedDate) => arr.map(date => date.map(d => {
         let res = []
         const now = new Date()
         if (
@@ -15,6 +15,7 @@ const setClasses = (arr, activeMonth, activeYear) => arr.map(date => date.map(d 
         ){
             res.push('activeMonth')
         }
+        if (d === selectedDate) res.push('selected')
         return {date: d, classes: res}
     })
 )
@@ -45,7 +46,7 @@ const getMonthArr = (date) => {
     return res
 }
 
-const getCalendarArr = (date) => {
+const getCalendarArr = (date, selectedDate) => {
     let res = []
     const selectedMonthArr = getMonthArr(date)
     const activeMonth = date.getMonth()
@@ -74,8 +75,7 @@ const getCalendarArr = (date) => {
 
     res = res.map(d => new Date(d.setDate(d.getDate() + 1)))
     res = getWeeksArr(res)
-    res = setClasses(res, activeMonth, activeYear)
-
+    res = setClasses(res, activeMonth, activeYear, selectedDate)
     return res
 }
 

@@ -1,5 +1,5 @@
 import getCalendarArr from '../../utils/calendar/calculateDays'
-import {SET_NEXT_MONTH, SET_PREV_MONTH} from '../actions/actionTypes'
+import {SET_NEXT_MONTH, SET_PREV_MONTH, SET_SELECTED_CALENDAR_DATE} from '../actions/actionTypes'
 
 let date = new Date()
 const currentDate = new Date()
@@ -7,6 +7,7 @@ const dateNow = date.getDate()
 let yearNow = date.getFullYear()
 let monthNow = date.getMonth()
 const weekDayNow = date.getDay()
+let selectedDate = null
 
 const initialState = {
     currentDate,
@@ -15,6 +16,7 @@ const initialState = {
     yearNow,
     monthNow,
     weekDayNow,
+    selectedDate,
     calendarArr: getCalendarArr(date)
 }
 
@@ -34,6 +36,7 @@ export default function input(state = initialState, action) {
                 yearNow,
                 monthNow,
                 weekDayNow,
+                selectedDate,
                 calendarArr: getCalendarArr(date)
             }
 
@@ -51,7 +54,20 @@ export default function input(state = initialState, action) {
                 yearNow,
                 monthNow,
                 weekDayNow,
+                selectedDate,
                 calendarArr: getCalendarArr(date)
+            }
+
+        case SET_SELECTED_CALENDAR_DATE:
+            return {
+                currentDate,
+                date,
+                dateNow,
+                yearNow,
+                monthNow,
+                weekDayNow,
+                selectedDate: action.payload,
+                calendarArr: state.calendarArr
             }
         default:
             return state

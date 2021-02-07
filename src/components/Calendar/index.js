@@ -8,15 +8,6 @@ import {setNextMonth, setPrevMonth} from "../../redux/actions/actions";
 
 class Calendar extends Component {
 
-    nextMonthHandler() {
-        console.log('nextMonthHandler')
-        this.props.setNextMonth()
-    }
-
-    prevMonthHandler() {
-
-    }
-
     render() {
         return(
             <div>
@@ -26,7 +17,7 @@ class Calendar extends Component {
                     </div>
                     <div className={classes.calendarControl}>
                         <div onClick={this.props.setPrevMonth}>{'prev_'}</div>
-                        <div onClick={this.props.setNextMonth} >{'next'}</div>
+                        <div onClick={this.props.setNextMonth} >{'_next'}</div>
                     </div>
                 </div>
                 <div className={classes.DayDate}>
